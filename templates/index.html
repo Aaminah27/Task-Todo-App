@@ -1,0 +1,46 @@
+<htmL>
+    <head>
+        <title>
+            Flask TODO APP
+        </title>
+   <link rel="stylesheet", href="{{url_for('static', filename='css/styles.css')}}">
+      <!--<link rel="stylesheet" href="static/styles.css">-->
+      <script>
+        function redirectToView() {
+          window.location.href = '/view';
+        }
+      </script>
+    </head>
+    <body>
+        <h1>Task TODO Application</h1>
+        <div class="content">
+            <form method="post" class="form_a">
+            <p>
+                <b>
+            <label for="content">TODO Content</label>
+                </b>
+            </p>
+            <p>
+            <input type="text" name="content" placeholder="add todo item" required>
+</p>
+<p>
+    <b> <label for="status">Status of Task </label></b>
+</p>
+<p>
+    <input type="radio" name="status" id="not_started" value="not_started" required>
+    <label for ="not_started">Not started</label>
+    </p>
+    <p>
+        <input type="radio" name="status" id="in_progress" value="in_progress" required>
+        <label for ="in_progress">In progress</label>
+        </p>
+        <p>
+        <input type="radio" name="status" id="completed" value="completed" required>
+        <label for ="completed">Completed</label>
+        </p>
+        <button type="submit">Submit</button>
+            </form>
+            <button type="submit" class="view_bt" onclick="redirectToView()">View all Tasks</button>
+        </div>
+    </body>
+</htmL>
