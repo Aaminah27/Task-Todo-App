@@ -1,0 +1,51 @@
+<htmL>
+    <head>
+        <title>
+            Flask TODO APP
+        </title>
+   <link rel="stylesheet", href="{{url_for('static', filename='css/styles.css')}}">
+      <!--<link rel="stylesheet" href="static/styles.css">-->
+      
+    </head>
+    <body>
+        <h1>Task TODO Application</h1>
+            <div class="todo">
+                <form method="post" class="form_a", action="{{url_for('update_task',id=task['_id'])}}">
+                <p>
+                    <b>
+                <label >Task Name</label>
+                    </b>
+                    </p>
+                    <p>
+                   <input type="text" value="{{task['content']}}", name="edit_name">
+                </p>
+                <br>
+                <p>
+                    <b> <label for="status_edit">Status of Task </label></b>
+                </p>
+                <p>
+                    <input type="radio" name="status_edit" id="not_started" value="not_started" required>
+                    <label for ="not_started">Not started</label>
+                    </p>
+                    <p>
+                        <input type="radio" name="status_edit" id="in_progress" value="in_progress" required>
+                        <label for ="in_progress">In progress</label>
+                        </p>
+                        <p>
+                        <input type="radio" name="status_edit" id="completed" value="completed" required>
+                        <label for ="completed">Completed</label>
+                        </p>
+                <br>
+                <p>
+                    <b>
+                <label >Date Created</label>
+                    </b>
+                    </p>
+                    <p>
+                    {{task['date_created']}}
+                    </p>
+                    <button type="submit">Submit</button>
+                   </form>
+                    </div>
+                    </body>
+                    </htmL>

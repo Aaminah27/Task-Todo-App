@@ -1,0 +1,48 @@
+<htmL>
+    <head>
+        <title>
+            Flask TODO APP
+        </title>
+   <link rel="stylesheet", href="{{url_for('static', filename='css/styles.css')}}">
+      <!--<link rel="stylesheet" href="static/styles.css">-->
+      
+    </head>
+    <body>
+        <h1>Task TODO Application</h1>
+    <p style="text-align: center;">
+        <a href="{{ url_for('index') }}" style="color: tomato;">Go back</a>
+    </p>
+        {% for tasks in todos %}
+            <div class="todo">
+                <p>
+                    <b>
+                <label >Task Name</label>
+                    </b>
+                    {{tasks['content']}}
+                </p>
+                <p>
+                    <b>
+                <label >status</label>
+                    </b>
+                    {{tasks['status']}}
+                </p>
+                <p>
+                    <b>
+                <label >Date Created</label>
+                    </b>
+                    {{tasks['date_created']}}
+                </p>
+                <br>
+                <form method="post" action="{{url_for('update',id=tasks['_id'])}}">
+                 <button type="submit">
+                    Update</button>
+                    </form>
+                <form method="post" action="{{url_for('delete',id=tasks['_id'])}}">
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this task?')">
+                Delete</button>
+                </form>
+            </div>
+          
+        {% endfor %}
+        </body>
+    </html>
